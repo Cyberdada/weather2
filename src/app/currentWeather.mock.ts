@@ -1,0 +1,43 @@
+import { CurrentWeather } from './models/currentWeather.model';
+
+export const currentWeatherMock: CurrentWeather = {
+  location: {
+    name: 'name',
+    region: 'region',
+    country: 'country',
+    lat: 1,
+    lon: 1,
+    tz_id: 'sfsf',
+    localtime_epoch: 23,
+    localtime: 's2423234',
+  },
+  current: {
+    last_updated_epoch: 11,
+    last_updated: 'string',
+    temp_c: 34,
+    temp_f: 23,
+    is_day: true,
+    condition: {
+      text: 'condition',
+      icon: 'iocon',
+      code: 3535,
+    },
+    wind_mph: 2,
+    wind_kph: 6,
+    wind_degree: 457,
+    wind_dir: '345',
+    pressure_mb: 23,
+    pressure_in: 12,
+    precip_mm: 234,
+    precip_in: 12,
+    humidity: 12,
+    cloud: 12,
+    feelslike_c: 12,
+    feelslike_f: 445,
+    vis_km: 23,
+    vis_miles: 213,
+    uv: 123,
+    gust_mph: 1,
+    gust_kph: 2,
+  },
+};

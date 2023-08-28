@@ -1,0 +1,43 @@
+<div
+  class="flex-col m-2 pt-1 pb-0 bg-white max-w-2xl border rounded-lg border-blue-200"
+>
+  <div class="m-1">
+    <app-location
+      [location]="location"
+      [lastUpdated]="detail.last_updated"
+    ></app-location>
+  </div>
+  <div class="m-1">{{ detail.condition.text }}</div>
+  <div class="first-row">
+    <img [src]="detail.condition.icon" [alt]="detail.condition.text" />
+    <div class="temperature">
+      <app-gauge [value]="detail.temp_c" unit="°" [size]="60"></app-gauge>
+      <span class="smaller feels-like"
+        >feels like
+        <span
+          class="tempsmall"
+          [ngStyle]="{ color: detail.temp_c > -1 ? 'red' : 'blue' }"
+          >{{ detail.feelslike_c | number : '1.0-0' }}°</span
+        ></span
+      >
+    </div>
+    <div class="rain">
+      {{ detail.precip_mm }}<span class="smaller">mm</span>
+    </div>
+
+    <div class="wind">
+      <div
+        class="windArrow"
+        [ngStyle]="{
+          transform: 'rotate(' + detail.wind_degree + 'deg)'
+        }"
+      >
+        ↑
+      </div>
+      <!-- kph to m/s -->
+      <div class="windtext">
+        {{ windms }}<span class="smaller"> ({{ gustms }}) m/s</span>
+      </div>
+    </div>
+  </div>
+</div>

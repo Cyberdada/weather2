@@ -1,0 +1,8 @@
+<header class="flex items-center bg-blue-500 h-20">
+  <img src="assets/weather/weatherman.png" alt="best weather" class="pr-3" />
+  <app-search-location
+    style="width: 80%"
+    [location]="location"
+    (locationSelected)="searchSelected.emit($event)"
+  ></app-search-location>
+</header>

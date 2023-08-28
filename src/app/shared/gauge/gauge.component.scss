@@ -1,0 +1,36 @@
+.ring {
+  position: relative;
+  background-image: radial-gradient(white 0, white 50%, transparent 10%),
+    conic-gradient(
+      lightblue 0deg,
+      yellow 20deg,
+      orange 40deg,
+      red 60deg,
+      darkred 90deg,
+      white 90deg,
+      white 270deg,
+      darkblue 270deg,
+      lightblue 360deg
+    );
+  border-radius: 45%;
+  box-shadow: none;
+}
+
+.needle {
+  position: absolute;
+  z-index: 2;
+  content: "";
+  top: 25%;
+  left: 49%;
+  border-style: none;
+  background-color: white;
+}
+
+.speed {
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+}

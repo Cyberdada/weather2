@@ -1,0 +1,48 @@
+.weather {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid #c3d0d8;
+  border-radius: 0.5333333333rem;
+  max-width: 40rem;
+}
+.first-row {
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.25rem;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.last-updated {
+  margin: 0.5rem;
+}
+
+.rain {
+  font-size: 2rem;
+  color: blue;
+}
+.smaller {
+  font-size: 0.9rem;
+}
+.temperature {
+  font-size: 2rem;
+  display: flex;
+  align-items: flex-end;
+}
+.feels-like {
+  margin-bottom: 14px;
+  margin-left: 5px;
+}
+
+.wind {
+  font-size: 2rem;
+  color: black;
+  display: flex;
+}
+.windArrow {
+  transform-origin: left;
+  margin-right: 2px;
+}
