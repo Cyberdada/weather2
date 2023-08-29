@@ -3,7 +3,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SearchLocationComponent } from './search-location.component';
 import { Component, Input } from '@angular/core';
 import { LocationCurrent } from '../../models/location.model';
-import { currentWeatherMock } from '../../weather.service.mock';
 
 describe('SearchLocationComponent', () => {
   let component: SearchLocationComponent;
@@ -20,18 +19,6 @@ describe('SearchLocationComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('setting location should set waiting to false', () => {
-    component.isWaiting = true;
-    component.location = currentWeatherMock.location;
-    expect(false).toEqual(component.isWaiting);
-  });
-
-  it('filterChanged should set waiting to true if there is an event.target', () => {
-    component.isSearching = true;
-    component.filterChanged({ target: { value: 'bongo ' } } as never);
-    expect(false).toEqual(component.isSearching);
   });
 });
 

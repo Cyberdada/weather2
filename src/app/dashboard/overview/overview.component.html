@@ -1,3 +1,6 @@
-<app-search [location]="result?.location" (searchSelected)="search($event)">
+<app-search (searchSelected)="search($event)" [isWaiting]="isWaiting">
 </app-search>
-<app-resultlist [current]="result"></app-resultlist>
+<app-resultlist
+  [results]="results"
+  (remove)="onRemove($event)"
+></app-resultlist>

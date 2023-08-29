@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import {
   CurrentWeather,
   WeatherDetail,
@@ -23,6 +29,8 @@ export class ResultComponent {
     this.gustms = Math.round((value.current.gust_kph * 1000) / 60 / 60);
     this.location = value.location;
   }
+
+  @Output() remove = new EventEmitter();
   detail!: WeatherDetail;
   location!: LocationCurrent;
   windms = 0;

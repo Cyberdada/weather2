@@ -5,9 +5,10 @@
     <app-location
       [location]="location"
       [lastUpdated]="detail.last_updated"
+      (remove)="remove.emit()"
     ></app-location>
   </div>
-  <div class="m-1">{{ detail.condition.text }}</div>
+  <div class="ml-1">{{ detail.condition.text }}</div>
   <div class="first-row">
     <img [src]="detail.condition.icon" [alt]="detail.condition.text" />
     <div class="temperature">

@@ -5,7 +5,6 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { LocationCurrent } from '../../models/location.model';
 import { SearchLocationComponent } from '../search-location/search-location.component';
 
 @Component({
@@ -16,6 +15,6 @@ import { SearchLocationComponent } from '../search-location/search-location.comp
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchComponent {
-  @Input() location: LocationCurrent | undefined;
+  @Input() isWaiting = false;
   @Output() searchSelected: EventEmitter<string> = new EventEmitter<string>();
 }

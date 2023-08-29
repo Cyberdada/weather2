@@ -2,7 +2,7 @@
   <img src="assets/weather/weatherman.png" alt="best weather" class="pr-3" />
   <app-search-location
     style="width: 80%"
-    [location]="location"
     (locationSelected)="searchSelected.emit($event)"
+    [isWaiting]="isWaiting"
   ></app-search-location>
 </header>

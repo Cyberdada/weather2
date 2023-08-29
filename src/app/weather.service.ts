@@ -29,4 +29,20 @@ export class WeatherService {
         )
       );
   }
+
+  //TODO! Type result
+  forecast(location: string): Observable<any> {
+    const locationUrl = `${environment.weatherUri}forecast.json?key=${environment.apiKey}&q=${location}&aqi=no&alerts=no`;
+    return this.httpClient
+      .get<CurrentWeather>(locationUrl)
+      .pipe(
+        catchError(
+          this.errorHandlerService.handleHttpError<CurrentWeather>(
+            'Forecast',
+            'WeatherService',
+            `location = ${location}`
+          )
+        )
+      );
+  }
 }

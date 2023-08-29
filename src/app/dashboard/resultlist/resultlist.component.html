@@ -1,3 +1,3 @@
-<div *ngFor="let result of results">
-  <app-result [current]="result"></app-result>
+<div *ngFor="let result of results; index as ix">
+  <app-result [current]="result" (remove)="remove.emit(ix)"></app-result>
 </div>
