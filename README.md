@@ -6,9 +6,9 @@ Clone the repo and add API Key for
 https://api.weatherapi.com/v1/
 
 
-add .env to gitignore
+add a file called .env to gitignore
 
-add .envFile and key to weather api in following format:
+in .env file add key to weather api in following format:
 NG_APP_WEATHER_KEY="*******************************"
 
 This is my playground project.
