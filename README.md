@@ -6,13 +6,11 @@ Clone the repo and add API Key for
 https://api.weatherapi.com/v1/
 
 
-add a file called .env to gitignore
+add a file, call it .env 
+add it to gitignore
 
-in .env file add key to weather api in following format:
+in the  .env file add key to weather api in following format:
 NG_APP_WEATHER_KEY="*******************************"
-
-This is my playground project.
-Currently, I am looking at Tailwind, nx and standalone components
 
 
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

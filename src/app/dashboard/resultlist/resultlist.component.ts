@@ -20,4 +20,5 @@ import { CurrentWeather } from 'src/app/models/currentWeather.model';
 export class ResultlistComponent {
   @Input() results: Array<CurrentWeather> = [];
   @Output() remove = new EventEmitter<number>();
+  @Output() forecast = new EventEmitter<number>();
 }

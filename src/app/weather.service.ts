@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-import { CurrentWeather } from './models/currentWeather.model';
+import { CurrentWeather, Forecast } from './models/currentWeather.model';
 import { Observable, catchError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ErrorHandlerService } from 'src/app/shared/error-handler.service';
@@ -31,13 +31,13 @@ export class WeatherService {
   }
 
   //TODO! Type result
-  forecast(location: string): Observable<any> {
+  forecast(location: string): Observable<Forecast> {
     const locationUrl = `${environment.weatherUri}forecast.json?key=${environment.apiKey}&q=${location}&aqi=no&alerts=no`;
     return this.httpClient
-      .get<CurrentWeather>(locationUrl)
+      .get<Forecast>(locationUrl)
       .pipe(
         catchError(
-          this.errorHandlerService.handleHttpError<CurrentWeather>(
+          this.errorHandlerService.handleHttpError<Forecast>(
             'Forecast',
             'WeatherService',
             `location = ${location}`

@@ -1,0 +1,30 @@
+<div *ngIf="forecast && forecast.forecast.forecastday.length > 0">
+  {{ forecast.location.name }}
+  <div class="flex">
+    <p>Sunrise: {{ forecast.forecast.forecastday[0].astro.sunrise }}</p>
+    <p>Sunset: {{ forecast.forecast.forecastday[0].astro.sunset }}</p>
+  </div>
+  <table class="min-w-min bg-white font-light ml-2">
+    <thead>
+      <tr>
+        <th class="bg-blue-100 border text-left px-4 py-4">Time</th>
+        <th class="bg-blue-100 border text-left px-4 py-4">Temp</th>
+        <th class="bg-blue-100 border text-left px-4 py-4">Rain</th>
+        <th class="bg-blue-100 border text-left px-4 py-4">Wind</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let h of forecast.forecast.forecastday[0].hour; index as ix">
+        <td class="text-right">{{ ix < 10 ? '0' : '' }}{{ ix }}</td>
+        <td
+          class="text-right"
+          [ngStyle]="{ color: h.temp_c > -1 ? 'red' : 'blue' }"
+        >
+          {{ h.temp_c | number : '1.0-0' }}°
+        </td>
+        <td class="text-right text-blue-600">{{ h.precip_mm }}</td>
+        <td class="text-right">{{ windkphToMs(h.wind_kph) }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

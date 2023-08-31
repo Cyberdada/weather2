@@ -31,6 +31,7 @@ export class ResultComponent {
   }
 
   @Output() remove = new EventEmitter();
+  @Output() forecast = new EventEmitter();
   detail!: WeatherDetail;
   location!: LocationCurrent;
   windms = 0;

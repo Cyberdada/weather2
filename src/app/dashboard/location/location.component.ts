@@ -40,4 +40,5 @@ export class LocationComponent {
   @Input() errorHasOccurred = false;
 
   @Output() remove = new EventEmitter();
+  @Output() forecast = new EventEmitter();
 }

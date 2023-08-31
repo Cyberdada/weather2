@@ -21,11 +21,11 @@ describe('WeatherService', () => {
     service = TestBed.inject(WeatherService);
   });
   const mockErrorHandler = new ErrorHandlerServiceMock();
-  it('should be created', () => {
+  test('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  it('byLocation should return an observable if location is found', (done: DoneFn) => {
+  test('byLocation should return an observable if location is found', (done: DoneFn) => {
     const getMock = httpClientSpy.get.and.callFake(() => of({}));
     service.byLocation('London').subscribe(() => {
       done();
@@ -33,7 +33,7 @@ describe('WeatherService', () => {
     });
   });
 
-  it('byLocation should invoke errorHandlerService if error is thrown', (done: DoneFn) => {
+  test('byLocation should invoke errorHandlerService if error is thrown', (done: DoneFn) => {
     httpClientSpy.get.and.returnValue(
       of(new HttpErrorResponse({ status: 422 }))
     );

@@ -1,11 +1,12 @@
 <div
-  class="flex-col m-2 pt-1 pb-0 bg-white max-w-2xl border rounded-lg border-blue-200"
+  class="flex-col m-2 pt-1 pb-0 bg-white max-w-2xl border rounded-lg border-blue-200 hover:bg-slate-400 active:bg-slate-600"
 >
   <div class="m-1">
     <app-location
       [location]="location"
       [lastUpdated]="detail.last_updated"
       (remove)="remove.emit()"
+      (forecast)="forecast.emit()"
     ></app-location>
   </div>
   <div class="ml-1">{{ detail.condition.text }}</div>
@@ -22,7 +23,7 @@
         ></span
       >
     </div>
-    <div class="rain">
+    <div class="text-3xl text-blue-600">
       {{ detail.precip_mm }}<span class="smaller">mm</span>
     </div>
 

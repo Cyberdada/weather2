@@ -1,6 +1,10 @@
 <app-search (searchSelected)="search($event)" [isWaiting]="isWaiting">
 </app-search>
-<app-resultlist
-  [results]="results"
-  (remove)="onRemove($event)"
-></app-resultlist>
+<div class="flex">
+  <app-resultlist
+    [results]="results"
+    (remove)="onRemove($event)"
+    (forecast)="onForecast($event)"
+  ></app-resultlist>
+  <app-forecast [forecast]="forecast"></app-forecast>
+</div>

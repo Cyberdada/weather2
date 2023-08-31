@@ -8,14 +8,14 @@ describe('LocationComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LocationComponent]
+      declarations: [LocationComponent],
     });
     fixture = TestBed.createComponent(LocationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create', () => {
     expect(component).toBeTruthy();
   });
 });

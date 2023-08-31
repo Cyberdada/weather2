@@ -1,12 +1,14 @@
 <div class="flex items-center">
-  <div class="text-xl font-bold">{{ location.name }}</div>
+  <div class="text-xl font-bold hover:cursor-pointer" (click)="forecast.emit()">
+    {{ location.name }}
+  </div>
   <div class="ml-1">{{ location.country }}-{{ location.region }}</div>
   <div class="ml-auto items-center flex text-xs mr-1">
     <div>
       <div title="Last updated">{{ lastUpdated }}</div>
       <div title="Local time">{{ localtime }}</div>
     </div>
-    <div (click)="remove.emit()" class="pl-2">
+    <div (click)="remove.emit()" class="pl-2 hover:cursor-pointer">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

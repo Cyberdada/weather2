@@ -7,14 +7,15 @@ import {
   HostListener,
 } from '@angular/core';
 import { WeatherService } from '../../weather.service';
-import { CurrentWeather } from '../../models/currentWeather.model';
+import { CurrentWeather, Forecast } from '../../models/currentWeather.model';
 import { SearchComponent } from '../search/search.component';
 import { ResultlistComponent } from '../resultlist/resultlist.component';
 import { LocationService } from 'src/app/shared/location.service';
+import { ForecastComponent } from '../forecast/forecast.component';
 
 @Component({
   standalone: true,
-  imports: [SearchComponent, ResultlistComponent],
+  imports: [SearchComponent, ResultlistComponent, ForecastComponent],
   selector: 'app-overview',
   templateUrl: './overview.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -31,6 +32,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
     this.ngOnDestroy();
   }
 
+  forecast: Forecast | null = null;
   results: Array<CurrentWeather> = [];
   isWaiting = false;
 
@@ -61,6 +63,19 @@ export class OverviewComponent implements OnInit, OnDestroy {
     this.results.splice(ix, 1);
     this.results = [...this.results];
     this.cdr.detectChanges();
+  }
+
+  onForecast(ix: number) {
+    this.getForecast(
+      `${this.results[ix].location.lat},${this.results[ix].location.lon}`
+    );
+  }
+
+  getForecast(coords: string) {
+    this.weatherService.forecast(coords).subscribe((retval) => {
+      this.forecast = retval;
+      this.cdr.detectChanges();
+    });
   }
   private addResult(value: CurrentWeather) {
     if (
