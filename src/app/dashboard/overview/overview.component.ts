@@ -5,6 +5,7 @@ import {
   OnInit,
   OnDestroy,
   HostListener,
+  Input,
 } from '@angular/core';
 import { WeatherService } from '../../weather.service';
 import { CurrentWeather, Forecast } from '../../models/currentWeather.model';
@@ -32,6 +33,12 @@ export class OverviewComponent implements OnInit, OnDestroy {
     this.ngOnDestroy();
   }
 
+  @Input() set hasError(value: boolean) {
+    if (value) {
+      this.isWaiting = false;
+    }
+  }
+
   forecast: Forecast | null = null;
   results: Array<CurrentWeather> = [];
   isWaiting = false;
@@ -55,14 +62,14 @@ export class OverviewComponent implements OnInit, OnDestroy {
     this.weatherService.byLocation(filterValue).subscribe((retval) => {
       this.addResult(retval);
       this.isWaiting = false;
-      this.cdr.detectChanges();
+      this.cdr.markForCheck();
     });
   }
 
   onRemove(ix: number) {
     this.results.splice(ix, 1);
     this.results = [...this.results];
-    this.cdr.detectChanges();
+    this.cdr.markForCheck();
   }
 
   onForecast(ix: number) {

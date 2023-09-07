@@ -23,6 +23,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private destroySubject$: Subject<void> = new Subject();
   error$!: Observable<ApplicationHttpError>;
   message = '';
+  hasError = false;
   constructor(
     private readonly cdr: ChangeDetectorRef,
     private readonly errorHandlerService: ErrorHandlerService
@@ -32,10 +33,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.error$ = this.errorHandlerService.error$;
     this.error$.pipe(takeUntil(this.destroySubject$)).subscribe((itm) => {
       this.message = `${itm.message}  ${itm.params}`;
-      this.cdr.detectChanges();
+      this.hasError = true;
+      this.cdr.markForCheck();
       setTimeout(() => {
+        this.hasError = false;
         this.message = '';
-        this.cdr.detectChanges();
+        this.cdr.markForCheck();
       }, 2500);
     });
   }

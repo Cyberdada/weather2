@@ -4,6 +4,7 @@ import {
   EventEmitter,
   Input,
   Output,
+  TrackByFunction,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ResultComponent } from '../result/result.component';
@@ -21,4 +22,6 @@ export class ResultlistComponent {
   @Input() results: Array<CurrentWeather> = [];
   @Output() remove = new EventEmitter<number>();
   @Output() forecast = new EventEmitter<number>();
+
+  trackByFn: TrackByFunction<CurrentWeather> = (_, item) => item.location.name;
 }

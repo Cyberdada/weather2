@@ -1,4 +1,4 @@
-<div *ngFor="let result of results; index as ix">
+<div *ngFor="let result of results; index as ix; trackBy: trackByFn">
   <app-result
     [current]="result"
     (remove)="remove.emit(ix)"
